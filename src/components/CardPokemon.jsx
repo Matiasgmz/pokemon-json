@@ -100,6 +100,10 @@ export default function CardPokemon() {
                                         return <Button className='ms-2 mt-2' style={{ background: '#edf9f9', borderColor: '#edf9f9', color: 'black' }}>{type}</Button>
                                     } else if (type == 'Ghost') {
                                         return <Button className='ms-2 mt-2' style={{ background: '#392b4c', borderColor: '#392b4c' }}>{type}</Button>
+                                    }else if (type == 'Dragon') {
+                                        return <Button className='ms-2 mt-2' style={{ background: '#e98645', borderColor: '#e98645' }}>{type}</Button>
+                                    }else if (type == 'Dark') {
+                                        return <Button className='ms-2 mt-2' style={{ background: '#49413c', borderColor: '#49413c' }}>{type}</Button>
                                     }
                                 }))}
                             </Card.Text>
