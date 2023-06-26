@@ -9,13 +9,26 @@ import { faHandBackFist } from '@fortawesome/free-regular-svg-icons';
 import SearchBar from './SearchBar';
 
 export default function CardPokemon() {
-    
+
     const [pokemons, setPokemons] = useState(data);
+    const [language, setLanguage] = useState('french');
+
 
     return (
 
         <div className='container mt-5'>
             <SearchBar pokemonData={data} setData={(val) => setPokemons(val)}></SearchBar>
+            <div className='w-100 d-flex justify-content-center'>
+                <Button variant="secondary" className='me-2' onClick={() => setLanguage('english')}>
+                    English
+                </Button>
+                <Button variant="secondary" className='me-2' onClick={() => setLanguage('french')}>
+                    French
+                </Button>
+                <Button variant="secondary" className='me-2' onClick={() => setLanguage('japanese')}>
+                    Japanese
+                </Button>
+            </div>
 
             <div className='row justify-content-center'>
                 {pokemons.map((pokemon) =>
@@ -23,7 +36,7 @@ export default function CardPokemon() {
 
                         <Card.Body>
                             <Card.Title>
-                                <p className='fw-bold fs-3'>#{pokemon.id} {pokemon.name.french ? pokemon.name.french : pokemon.name.english}</p>
+                                <p className='fw-bold fs-3'>#{pokemon.id} {pokemon.name[language]}</p>
                                 <div className='w-100 d-flex justify-content-between'>
                                     <Badge bg="success">{pokemon.name.english} </Badge>
                                     <Badge bg="danger">{pokemon.name.japanese}</Badge>
@@ -100,9 +113,9 @@ export default function CardPokemon() {
                                         return <Button className='ms-2 mt-2' style={{ background: '#edf9f9', borderColor: '#edf9f9', color: 'black' }}>{type}</Button>
                                     } else if (type == 'Ghost') {
                                         return <Button className='ms-2 mt-2' style={{ background: '#392b4c', borderColor: '#392b4c' }}>{type}</Button>
-                                    }else if (type == 'Dragon') {
+                                    } else if (type == 'Dragon') {
                                         return <Button className='ms-2 mt-2' style={{ background: '#e98645', borderColor: '#e98645' }}>{type}</Button>
-                                    }else if (type == 'Dark') {
+                                    } else if (type == 'Dark') {
                                         return <Button className='ms-2 mt-2' style={{ background: '#49413c', borderColor: '#49413c' }}>{type}</Button>
                                     }
                                 }))}
